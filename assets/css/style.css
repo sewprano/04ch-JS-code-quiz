@@ -1,2 +1,7 @@
 /* To do: */
 /* add "hide"  */
+
+button {
+    padding: 1em;
+    margin: .5em;
+}

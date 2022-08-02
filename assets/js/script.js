@@ -1,18 +1,29 @@
 //DOM Elements
 const startScreenEl = document.querySelector("#start-screen");
 const timeEl = document.querySelector("#time");
-const mainEl = document.querySelector("#main")
+const mainEl = document.querySelector("#main");
+const quizEl = document.querySelector("#quiz");
 
-let timer = 0;
+let timer;
 let score = 0;
 let questionIndex = 0;
+let timeInterval;
 
 function startTimer() {
-    
 }
+
 function displayQuestions() {
-    //display question 
-    //display answer buttons
+    //display question & display answer buttons
+    quizEl.innerHTML = `
+    <h3>${quizQuestions[questionIndex].question}</h3>
+    <button data-answer="a" class="answer">${quizQuestions[questionIndex].answerOptions.a}</button>
+    <button data-answer="b" class="answer">${quizQuestions[questionIndex].answerOptions.b}</button>
+    <button data-answer="c" class="answer">${quizQuestions[questionIndex].answerOptions.c}</button>
+    <button data-answer="d" class="answer">${quizQuestions[questionIndex].answerOptions.d}</button>
+    `;
+    // const test = document.createElement("<p>");
+    // test.innerHTML = "test";
+    // quizEl.append(test);
 }
 
 //evaluate answer
@@ -34,16 +45,17 @@ function startGame() {
 }
 
 function endGame() {
-    //hide questions
     //calculate final score
         //current score + time left
     //display score
-    //present form and sumbit button for initials
+    //display form and sumbit button for initials
+    //save score and initials
     //display start over button
 }
 
 //event listener for button clicks
-mainEl.addEventListener("click"), (event) => {
+mainEl.addEventListener("click", (event) => {
+    // console.log(event.target);
     //if start button clicked
     if (event.target.classList.contains("start")) {
         startGame();
@@ -52,15 +64,23 @@ mainEl.addEventListener("click"), (event) => {
     //if answer button clicked
     if (event.target.classList.contains("answer")) {
         checkAnswer(event);
-        questionIndex ++;
+        questionIndex++;
 
         //has the last question been reached?
         if (questionIndex == quizQuestions.length) {
-            
+            //end timer
+            clearInterval(timeInterval);
+            //hide quiz
+            quizEl.classList.add("hide")
+            //end game
+            endGame();
+        } 
+        else {
+            displayQuestions();
         }
     }
 
-}
+})
 
 
 
