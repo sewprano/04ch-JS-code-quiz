@@ -5,6 +5,7 @@ const mainEl = document.querySelector("#main")
 
 let timer = 0;
 let score = 0;
+let questionIndex = 0;
 
 function startTimer() {
     
@@ -42,7 +43,24 @@ function endGame() {
 }
 
 //event listener for button clicks
+mainEl.addEventListener("click"), (event) => {
+    //if start button clicked
+    if (event.target.classList.contains("start")) {
+        startGame();
+    }
 
+    //if answer button clicked
+    if (event.target.classList.contains("answer")) {
+        checkAnswer(event);
+        questionIndex ++;
+
+        //has the last question been reached?
+        if (questionIndex == quizQuestions.length) {
+            
+        }
+    }
+
+}
 
 
 
