@@ -21,6 +21,8 @@ function displayQuestions() {
     <button data-answer="c" class="answer">${quizQuestions[questionIndex].answerOptions.c}</button>
     <button data-answer="d" class="answer">${quizQuestions[questionIndex].answerOptions.d}</button>
     `;
+    
+    //ERROR CHECKING:
     // const test = document.createElement("<p>");
     // test.innerHTML = "test";
     // quizEl.append(test);
