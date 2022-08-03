@@ -13,20 +13,20 @@ const quizQuestions = [
     {
         question: "Where is the correct place to insert a JavaScript?",
         answerOptions: {
-            a: "Both head section and the <body> section are correct",
-            b: "The body section",
-            c: "The head section",
-            d: "The footer section"
+            a: "Both &lt;head&gt; section and the &lt;body&gt; section are correct",
+            b: "The &lt;body&gt; section",
+            c: "The &lt;head&gt; section",
+            d: "The &lt;footer&gt; section"
         },
         answer: "a"
     },
     {
         question: "What is the correct syntax for referring to an external script called \"xxx.js\"?",
         answerOptions: {
-            a: "script name =\"xxx.js\"",
-            b: "script href = \"xxx.js\"",
-            c: "script src=\"xxx.js\"",
-            d: "script = \"xxx.js\""
+            a: "&lt;script name =\"xxx.js\"&gt;",
+            b: "&lt;script href = \"xxx.js\"&gt;",
+            c: "&lt;script src=\"xxx.js\"&gt;",
+            d: "&lt;script = \"xxx.js\"&gt;"
         },
         answer: "c"
     } 
