@@ -9,7 +9,21 @@ let score = 0;
 let questionIndex = 0;
 let timeInterval;
 
-function startTimer() {
+function endGame() {
+    //calculate final score
+        //current score + time left
+    //display score
+    //display form and sumbit button for initials
+    //save score and initials
+    //display start over button
+}
+
+//evaluate answer
+function checkAnswer() {
+    //If correct - display "correct" message
+    //If incorret:
+        //display "wrong" message 
+        //subtract 5 seconds from timer
 }
 
 function displayQuestions() {
@@ -28,12 +42,7 @@ function displayQuestions() {
     // quizEl.append(test);
 }
 
-//evaluate answer
-function checkAnswer() {
-    //If correct - display "correct" message
-    //If incorret:
-        //display "wrong" message 
-        //subtract 5 seconds from timer
+function startTimer() {
 }
 
 //when start button pressed: start game
@@ -44,15 +53,6 @@ function startGame() {
     startTimer();
     //display each question and it's answer buttons
     displayQuestions();
-}
-
-function endGame() {
-    //calculate final score
-        //current score + time left
-    //display score
-    //display form and sumbit button for initials
-    //save score and initials
-    //display start over button
 }
 
 //event listener for button clicks
