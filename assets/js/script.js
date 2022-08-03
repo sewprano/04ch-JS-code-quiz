@@ -4,18 +4,26 @@ const timeEl = document.querySelector("#time");
 const mainEl = document.querySelector("#main");
 const messageEl = document.querySelector("#message");
 const quizEl = document.querySelector("#quiz");
+const formEl = document.querySelector("#score-form");
 
 let timer;
-let score = 0;
-let questionIndex = 0;
+let score;
+let questionIndex;
 let timeInterval;
 
 function endGame() {
-    //calculate final score
-        //current score + time left
+    //end timer
+    clearInterval(timeInterval);
+    //hide quiz
+    quizEl.classList.add("hide")
+    //add remaining time to score
+    score += timer;
     //display score
+    messageEl.textContent = score;
     //display form and sumbit button for initials
+
     //save score and initials
+
     //display start over button
 }
 
@@ -26,7 +34,6 @@ function checkAnswer(event) {
     if (chosenAnswer == quizQuestions[questionIndex].answer) {
         score ++;
         messageEl.textContent = "Correct!";
-        messageEl.classList.add("green");
     }
     //If incorret:
     else {
@@ -34,7 +41,6 @@ function checkAnswer(event) {
         timer -= 5;
         //display "wrong" message 
         messageEl.textContent = "Incorrect!";
-        messageEl.classList.add("red");
     }
         
 }
@@ -57,12 +63,28 @@ function displayQuestions() {
 
 function startTimer() {
     
+    //start timer clock
+    timeEl.textContent = timer;
+
+    timeInterval = setInterval(function() {
+        timer--;
+        //when timer runs out:
+        if (timer <= 0) {
+        //end game
+        endGame();
+         }
+    }
+    , 1000);
 }
 
 //when start button pressed: start game
 function startGame() {
     //hide start screen
     startScreenEl.classList.add("hide");
+    //set initial values
+    score = 0;
+    timer = (quizQuestions.length * 5);
+    questionIndex = 0;
     //Start the timer
     startTimer();
     //display each question and it's answer buttons
@@ -70,7 +92,7 @@ function startGame() {
 }
 
 //event listener for button clicks
-mainEl.addEventListener("click", (event) => {
+mainEl.addEventListener("click", function(event) {
     // console.log(event.target);
     //if start button clicked
     if (event.target.classList.contains("start")) {
@@ -84,10 +106,6 @@ mainEl.addEventListener("click", (event) => {
 
         //has the last question been reached?
         if (questionIndex == quizQuestions.length) {
-            //end timer
-            clearInterval(timeInterval);
-            //hide quiz
-            quizEl.classList.add("hide")
             //end game
             endGame();
         } 
