@@ -2,6 +2,7 @@
 const startScreenEl = document.querySelector("#start-screen");
 const timeEl = document.querySelector("#time");
 const mainEl = document.querySelector("#main");
+const messageEl = document.querySelector("#message");
 const quizEl = document.querySelector("#quiz");
 
 let timer;
@@ -19,11 +20,23 @@ function endGame() {
 }
 
 //evaluate answer
-function checkAnswer() {
+function checkAnswer(event) {
+    const chosenAnswer = event.target.dataset.answer;
     //If correct - display "correct" message
+    if (chosenAnswer == quizQuestions[questionIndex].answer) {
+        score ++;
+        messageEl.textContent = "Correct!";
+        messageEl.classList.add("green");
+    }
     //If incorret:
-        //display "wrong" message 
+    else {
         //subtract 5 seconds from timer
+        timer -= 5;
+        //display "wrong" message 
+        messageEl.textContent = "Incorrect!";
+        messageEl.classList.add("red");
+    }
+        
 }
 
 function displayQuestions() {
@@ -43,6 +56,7 @@ function displayQuestions() {
 }
 
 function startTimer() {
+    
 }
 
 //when start button pressed: start game
