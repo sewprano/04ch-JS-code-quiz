@@ -62,11 +62,9 @@ function displayQuestions() {
 }
 
 function startTimer() {
-    
-    //start timer clock
-    timeEl.textContent = timer;
-
     timeInterval = setInterval(function() {
+    //start timer clock
+        timeEl.textContent = timer;
         timer--;
         //when timer runs out:
         if (timer <= 0) {
